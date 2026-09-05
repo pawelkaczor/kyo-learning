@@ -1,0 +1,10 @@
+target/
+.bsp/
+.bloop/
+.metals/
+.idea/
+.vscode/
+.DS_Store
+.env
+.env.*
+*.log

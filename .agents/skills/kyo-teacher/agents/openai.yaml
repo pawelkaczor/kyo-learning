@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kyo Teacher"
+  short_description: "Learn Kyo through JVM lessons and exercises"
+  default_prompt: "Use $kyo-teacher to continue our Kyo course from the recorded progress."
