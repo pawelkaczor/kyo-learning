@@ -28,3 +28,7 @@ Keep release versions fixed during a lesson. Use immutable source links for API 
 If an API exists only in a later version, record that fact and discuss a deliberate upgrade before changing the shared course baseline. Never silently substitute a snapshot, `publishLocal`, or a local framework dependency.
 
 An upgrade includes checking artifact availability, compiling and running existing prepared examples and reference solutions, reviewing learner exercise compatibility without overwriting attempts, and updating the module ledger and this record. Keep enough version history for old lesson commits to remain reproducible.
+
+## Lesson 1 release checks
+
+The [Lesson 1 verification record](../lessons/01-pending/verification.md) covers the matching published source files for pending computations, Env, Console, and KyoApp. Each matched the release commit above. The published [Kyo ZIO test adapter POM](https://repo.maven.apache.org/maven2/io/getkyo/kyo-zio-test_3/1.0.0-RC6/kyo-zio-test_3-1.0.0-RC6.pom) pins ZIO 2.1.26. Its `KyoSpecAbstract.scala` and `KyoSpecDefault.scala` source files were read from the matching source jar. The course explicitly pins the consumer's `zio-test-sbt` runner to 2.1.26.

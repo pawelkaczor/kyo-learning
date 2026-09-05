@@ -7,7 +7,7 @@ The learner already knows Scala and functional programming. Start with Kyo's dis
 1. **Pending computations and composition.** Read `A < S`, combine computations, understand Kyo's `map` and ordinary for-comprehensions, and identify what a handler must remove. Use the smallest set of effects needed for a concrete example. Exercise direction: predict types and values, then compose a small computation yourself.
 2. **Typed failure and handling.** Introduce `Abort` and the relevant `Result` cases; reason about what remains after handling. Exercise direction: model and handle a small validation failure without erasing its type.
 
-Lesson 1 is not prepared yet. Before delivery, check the release-matched API, solve and run the exercises, and adjust boundaries if the lesson introduces too many concepts. The teacher may inspect the necessary source then, not the entire containing module.
+[Lesson 1](../lessons/01-pending/lesson.md) is prepared and verified. Delivery begins with pending computations and one environment requirement; effectful composition and the checkout exercise follow after the learner's prediction. Lesson 2 remains an outline.
 
 ## Later dependencies
 

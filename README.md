@@ -12,7 +12,7 @@ Use JDK 25 and sbt. From this repository:
 sbt verify
 ```
 
-The setup check compiles and runs a small Kyo application. Success prints `Kyo JVM workspace is ready.` The pinned versions are Kyo `1.0.0-RC6`, Scala `3.8.4`, and sbt `1.12.13`. JDK 25 is the selected course runtime, not a claim about Kyo's minimum supported JDK.
+Root verification runs the setup check plus prepared lesson examples and reference tests. The setup check compiles and runs a small Kyo application. Success prints `Kyo JVM workspace is ready.` The pinned versions are Kyo `1.0.0-RC6`, Scala `3.8.4`, and sbt `1.12.13`. JDK 25 is the selected course runtime, not a claim about Kyo's minimum supported JDK.
 
 Open this directory as a separate Codex project. The teaching skill is versioned at [.agents/skills/kyo-teacher/SKILL.md](.agents/skills/kyo-teacher/SKILL.md). A local installation can point to this directory so skill improvements remain in git. The root [AGENTS.md](AGENTS.md) also routes teaching requests to it.
 
@@ -35,16 +35,16 @@ Progress is based on your code and explanations, not on whether the teacher has 
 ## Navigation
 
 - [Course roadmap](course/roadmap.md): a provisional sequence, with detail only near the current lesson.
-- [Module coverage](course/modules.md): the ecosystem checklist, currently indexed but unstudied.
+- [Module coverage](course/modules.md): the ecosystem checklist, with coverage recorded only for the topics actually prepared or introduced.
 - [Progress](course/progress.md): learner evidence and next action.
 - [Teacher preparation](course/teacher-notes.md): what has been verified and what needs preparation.
 - [Sources and versions](course/sources.md): source provenance and the version policy.
 - [Workspace verification](course/verification.md): executed checks and their output, including a Scala runtime deprecation warning on JDK 25.
 
-## Layout as lessons arrive
+## Lessons and layout
 
 Each `lessons/NN-topic/` directory will contain `lesson.md`, `exercises.md`, `hints.md`, and `verification.md`. Its `examples/`, `exercises/`, and `reference/` directories will be separate sbt subprojects using ordinary `src/main/scala` and `src/test/scala` layouts. We create these only when a lesson needs them.
 
 One root build shares dependency versions. Lessons add only their own dependencies. Root verification covers prepared examples and reference solutions. Exercise checks are run explicitly, so an unfinished exercise cannot break other lessons. The first exercise will introduce its exact commands.
 
-This setup is not Lesson 1. No Kyo module implementation has been studied yet.
+Start [Lesson 1: pending computations and composition](lessons/01-pending/lesson.md), then use its [exercise instructions](lessons/01-pending/exercises.md). The starter intentionally has failing behavior checks. Run them explicitly with `sbt 'lesson01Exercises/test'`; they are excluded from root verification.

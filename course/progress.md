@@ -10,7 +10,9 @@
 
 ## Current state
 
-Workspace setup. No lesson delivered, attempted, reviewed, or completed.
+Lesson 1, [pending computations and composition](../lessons/01-pending/lesson.md), is prepared and verified. The opening segment introduces `A < S`, an `Env` requirement, and supplying it with a handler. A prediction question is pending. The later composition segment and implementation exercise are prepared for the learner's next turn.
+
+No exercise has been attempted, reviewed, or demonstrated.
 
 ## Evidence
 
@@ -20,4 +22,4 @@ For later entries, record the lesson, exercise or explanation observed, what the
 
 ## Next session
 
-Prepare and teach Lesson 1 on pending computations and composition. Read the source/version record before selecting examples. Give the learner a small prediction question followed by an implementation exercise, without revealing its reference solution.
+Wait for the opening prediction: supply `GreetingConfig("Welcome")` to `message("Lin")`, then identify the result type after `Env.run` but before `.eval`, the final string, and what the handler changes. Then introduce effectful `map`, the remaining `Sync` requirement, and the checkout exercise. Keep the reference solution out of the teaching exchange until requested or appropriate after an attempt.

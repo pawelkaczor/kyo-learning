@@ -19,7 +19,7 @@ Release availability, JVM requirements, and whether an entry is a published libr
 | `kyo-compat` | Interop | indexed | None |
 | `kyo-compiler` | Specialized tools | indexed | None |
 | `kyo-config` | Applications | indexed | None |
-| `kyo-core` | Core | indexed | None |
+| `kyo-core` | Core | prepared (limited) | [Lesson 1](../lessons/01-pending/lesson.md). Console.printLine, Sync in the row, and KyoApp boundary; later Lesson 1 segment. |
 | `kyo-data` | Core | indexed | None |
 | `kyo-direct` | Writing style | indexed | None |
 | `kyo-doctest` | Dev tools | indexed | None |
@@ -30,7 +30,7 @@ Release availability, JVM requirements, and whether an entry is a published libr
 | `kyo-i18n` | Applications | indexed | None |
 | `kyo-jsonrpc` | Specialized tools | indexed | None |
 | `kyo-jsonrpc-http` | Not listed in overview | indexed | None |
-| `kyo-kernel` | Core | indexed | None |
+| `kyo-kernel` | Core | introduced (limited) | [Lesson 1](../lessons/01-pending/lesson.md). Pending type, pure map, and fully handled eval; composition prepared. No learner demonstration. |
 | `kyo-logging-jpl` | Observability | indexed | None |
 | `kyo-logging-slf4j` | Observability | indexed | None |
 | `kyo-lsp` | Specialized tools | indexed | None |
@@ -40,7 +40,7 @@ Release availability, JVM requirements, and whether an entry is a published libr
 | `kyo-offheap` | Concurrency | indexed | None |
 | `kyo-parse` | Specialized tools | indexed | None |
 | `kyo-pod` | Specialized tools | indexed | None |
-| `kyo-prelude` | Core | indexed | None |
+| `kyo-prelude` | Core | introduced (limited) | [Lesson 1](../lessons/01-pending/lesson.md). Env.get and supplying one configuration with Env.run. Other APIs unstudied. |
 | `kyo-reactive-streams` | Interop | indexed | None |
 | `kyo-scheduler` | Core | indexed | None |
 | `kyo-scheduler-finagle` | Scheduler interop | indexed | None |
@@ -65,9 +65,9 @@ Release availability, JVM requirements, and whether an entry is a published libr
 | `kyo-stm` | Concurrency | indexed | None |
 | `kyo-system` | Core | indexed | None |
 | `kyo-tasty` | Specialized tools | indexed | None |
-| `kyo-test` | Testing | indexed | None |
+| `kyo-test` | Testing | indexed | RC6 Maven artifact probe returned 404; use the verified `kyo-zio-test` adapter for Lesson 1. No module study. |
 | `kyo-ui` | Applications | indexed | None |
 | `kyo-website` | Not listed in overview | indexed | None |
 | `kyo-website-bundle` | Not listed in overview | indexed | None |
 | `kyo-zio` | Interop | indexed | None |
-| `kyo-zio-test` | Testing | indexed | None |
+| `kyo-zio-test` | Testing | prepared (test infrastructure) | [Lesson 1](../lessons/01-pending/lesson.md). RC6 standalone KyoSpecDefault and explicit ZIO sbt runner registration verified. |
