@@ -40,6 +40,12 @@ Verified automatic lifting, pure and effectful `map`, equivalent for-comprehensi
 
 The exercise starter compiles and has targeted expected failures. The shared acceptance source is compiled independently by the exercises and reference, with no project dependency between them. The reference solves the main exercise and independent variation. A representative wrong answer was rejected, then restored. See [Lesson 1 verification](../lessons/01-pending/verification.md) for commands and outcomes. Keep reference implementation details in its own directory.
 
+## Teaching update, 2026-09-06
+
+Reviewed the opening prediction and continued with the already verified effectful `map` example. The post-handler type prediction was correct; exact string punctuation needed correction. Use the remaining-effect transfer question to check the explanation behind the type answer. See [progress](progress.md) for the pending prompt.
+
+Restored Lesson 1 knowledge from the teacher refresher and existing source. No API changes, new source investigation, or new test runs were needed. Verification remains the recorded 2026-09-05 result. The learner subsequently answered the remaining-effect transfer correctly, including why `.eval` is unavailable. Introduce the prepared for-comprehension and `KyoApp` boundary, then offer only `subtotal` as the first implementation step. The rest of the exercise remains available in the written instructions. No additional source investigation or execution was needed for this continuation.
+
 ## Source caution
 
 The online overview and local checkout are orientation aids. Their API descriptions are not proof of behavior in the pinned Maven release. Confirm each taught claim against matching source and executable evidence. See [sources.md](sources.md).

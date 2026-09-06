@@ -10,16 +10,15 @@
 
 ## Current state
 
-Lesson 1, [pending computations and composition](../lessons/01-pending/lesson.md), is prepared and verified. The opening segment introduces `A < S`, an `Env` requirement, and supplying it with a handler. A prediction question is pending. The later composition segment and implementation exercise are prepared for the learner's next turn.
+Lesson 1, [pending computations and composition](../lessons/01-pending/lesson.md), is prepared and verified. The opening and remaining-effect predictions have been attempted and reviewed. Pending types, effectful `map`, combined rows, and the distinction between `Console` and `Sync` have been introduced. The equivalent for-comprehension and `KyoApp` boundary are being introduced, followed by the first checkout implementation step.
 
-No exercise has been attempted, reviewed, or demonstrated.
+No implementation exercise has been attempted or reviewed. The checkout starter remains unfinished.
 
 ## Evidence
 
-No Kyo exercise evidence yet. A successful environment smoke check is not evidence of conceptual mastery.
-
-For later entries, record the lesson, exercise or explanation observed, what the learner demonstrated, remaining confusion, and a useful revisit prompt. Distinguish `prepared`, `introduced`, `attempted`, `reviewed`, and `demonstrated`. Never mark a topic demonstrated just because materials were generated or tests passed.
+- 2026-09-06, Lesson 1 opening prediction: correctly predicted `String < Any` after supplying the greeting configuration (the submitted type had a spelling typo), and identified the evaluated result as a `String`. The predicted text omitted the interpolation's comma and exclamation mark; feedback supplied the exact value, `"Welcome, Lin!"`.
+- 2026-09-06, remaining-effect transfer: correctly predicted `Unit < Sync` after providing the environment to `announce`, and explained that `.eval` cannot be used because `Sync` remains pending. This demonstrates the distinction between handling one requirement and having no effects remaining in this example. The description of `Sync` as an IO-like effect was accepted and refined to synchronous side effects here. No general handler or module mastery is claimed.
 
 ## Next session
 
-Wait for the opening prediction: supply `GreetingConfig("Welcome")` to `message("Lin")`, then identify the result type after `Env.run` but before `.eval`, the final string, and what the handler changes. Then introduce effectful `map`, the remaining `Sync` requirement, and the checkout exercise. Keep the reference solution out of the teaching exchange until requested or appropriate after an attempt.
+Wait for the first implementation attempt in the checkout exercise: implement only `subtotal(quantity)` using `Env.get[Pricing]` and `map`, keeping `Int < Env[Pricing]`. Ask for a brief explanation of the pending requirement. The whole acceptance suite will still have failures while `total` and `receipt` are unfinished. Review with a small hint if needed, then proceed to those methods and the independent variation at the learner's pace. Keep reference solutions out of the teaching exchange until requested or appropriate after an attempt.

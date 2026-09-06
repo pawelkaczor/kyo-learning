@@ -19,7 +19,7 @@ Release availability, JVM requirements, and whether an entry is a published libr
 | `kyo-compat` | Interop | indexed | None |
 | `kyo-compiler` | Specialized tools | indexed | None |
 | `kyo-config` | Applications | indexed | None |
-| `kyo-core` | Core | prepared (limited) | [Lesson 1](../lessons/01-pending/lesson.md). Console.printLine, Sync in the row, and KyoApp boundary; later Lesson 1 segment. |
+| `kyo-core` | Core | introduced (limited) | [Lesson 1](../lessons/01-pending/lesson.md). Console.printLine, Sync in the row, and KyoApp boundary introduced. Learner correctly explained that remaining Sync prevents eval; runtime use not yet practised. |
 | `kyo-data` | Core | indexed | None |
 | `kyo-direct` | Writing style | indexed | None |
 | `kyo-doctest` | Dev tools | indexed | None |
@@ -30,7 +30,7 @@ Release availability, JVM requirements, and whether an entry is a published libr
 | `kyo-i18n` | Applications | indexed | None |
 | `kyo-jsonrpc` | Specialized tools | indexed | None |
 | `kyo-jsonrpc-http` | Not listed in overview | indexed | None |
-| `kyo-kernel` | Core | introduced (limited) | [Lesson 1](../lessons/01-pending/lesson.md). Pending type, pure map, and fully handled eval; composition prepared. No learner demonstration. |
+| `kyo-kernel` | Core | introduced (limited) | [Lesson 1](../lessons/01-pending/lesson.md). Pending type, pure/effectful map, combined rows, and fully handled eval introduced. Two type predictions reviewed, including the reason eval is unavailable with Sync remaining. Implementation pending. |
 | `kyo-logging-jpl` | Observability | indexed | None |
 | `kyo-logging-slf4j` | Observability | indexed | None |
 | `kyo-lsp` | Specialized tools | indexed | None |
