@@ -30,7 +30,7 @@ Release availability, JVM requirements, and whether an entry is a published libr
 | `kyo-i18n` | Applications | indexed | None |
 | `kyo-jsonrpc` | Specialized tools | indexed | None |
 | `kyo-jsonrpc-http` | Not listed in overview | indexed | None |
-| `kyo-kernel` | Core | introduced (limited) | [Lesson 1](../lessons/01-pending/lesson.md). Pending type, pure/effectful map, combined rows, and fully handled eval introduced. Two type predictions reviewed, including the reason eval is unavailable with Sync remaining. Implementation pending. |
+| `kyo-kernel` | Core | practised (limited) | [Lesson 1](../lessons/01-pending/lesson.md). Pending type, pure/effectful map, combined rows, and fully handled eval introduced. Two type predictions reviewed. Checkout pure/effectful map and for-comprehension implementation passes all five acceptance tests; learner correctly identified automatic branch lifting. Independent variation pending. |
 | `kyo-logging-jpl` | Observability | indexed | None |
 | `kyo-logging-slf4j` | Observability | indexed | None |
 | `kyo-lsp` | Specialized tools | indexed | None |
@@ -40,7 +40,7 @@ Release availability, JVM requirements, and whether an entry is a published libr
 | `kyo-offheap` | Concurrency | indexed | None |
 | `kyo-parse` | Specialized tools | indexed | None |
 | `kyo-pod` | Specialized tools | indexed | None |
-| `kyo-prelude` | Core | introduced (limited) | [Lesson 1](../lessons/01-pending/lesson.md). Env.get and supplying one configuration with Env.run. Other APIs unstudied. |
+| `kyo-prelude` | Core | practised (limited) | [Lesson 1](../lessons/01-pending/lesson.md). Env.get practised in checkout with pending signatures; supplied configurations verified by acceptance tests. Env.run predictions reviewed. Other APIs unstudied. |
 | `kyo-reactive-streams` | Interop | indexed | None |
 | `kyo-scheduler` | Core | indexed | None |
 | `kyo-scheduler-finagle` | Scheduler interop | indexed | None |

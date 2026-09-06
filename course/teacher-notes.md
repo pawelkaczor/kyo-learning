@@ -46,6 +46,16 @@ Reviewed the opening prediction and continued with the already verified effectfu
 
 Restored Lesson 1 knowledge from the teacher refresher and existing source. No API changes, new source investigation, or new test runs were needed. Verification remains the recorded 2026-09-05 result. The learner subsequently answered the remaining-effect transfer correctly, including why `.eval` is unavailable. Introduce the prepared for-comprehension and `KyoApp` boundary, then offer only `subtotal` as the first implementation step. The rest of the exercise remains available in the written instructions. No additional source investigation or execution was needed for this continuation.
 
+## Checkout review, 2026-09-06
+
+The learner moved ahead to all three functions; review them together and adapt the pace. Ran `sbt 'lesson01Exercises/test'` on the actual learner source: compilation succeeded, four acceptance tests passed, the receipt-format test failed, exit 1. The only observed acceptance mismatch is the requested exact output format. Effect composition and arithmetic, including the zero/free-item boundaries, are correct within the exercise domain. Preserve the learner's conditional implementation and formatting choice as their attempt; request the contract correction without rewriting it.
+
+Use the plain-value versus pending-computation branches in the learner's own `total` as the next short explanation question. No new framework investigation was needed. The earlier preparation verification remains dated separately; this run is learner-review evidence. The independent variation is still pending.
+
+## Checkout follow-up, 2026-09-06
+
+The learner corrected receipt formatting and identified automatic lifting in the conditional branches. Re-ran `sbt 'lesson01Exercises/test'`: compilation succeeded, all five acceptance tests passed, exit 0. The main implementation is complete; the independent test variation remains pending. Explain lifting as adapting the plain value to the expected pending type without introducing a new effect operation. The overall `total` still requires the environment, including through `subtotal` on the zero-quantity path. This uses already verified lesson semantics; no new framework investigation was needed.
+
 ## Source caution
 
 The online overview and local checkout are orientation aids. Their API descriptions are not proof of behavior in the pinned Maven release. Confirm each taught claim against matching source and executable evidence. See [sources.md](sources.md).

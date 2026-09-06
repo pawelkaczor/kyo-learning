@@ -5,13 +5,24 @@ import kyo.*
 final case class Pricing(unitPriceCents: Int, deliveryCents: Int)
 
 object Checkout:
-    // TODO: read Pricing with Env.get and calculate the subtotal using map.
-    def subtotal(quantity: Int): Int < Env[Pricing] = 0
+    def subtotal(quantity: Int): Int < Env[Pricing] =
+        Env.get[Pricing].map { pricing =>
+            quantity * pricing.unitPriceCents
+        }
 
-    // TODO: compose subtotal with another Env read using effectful map.
-    // Delivery is charged once for positive quantities; zero items cost zero.
-    def total(quantity: Int): Int < Env[Pricing] = 0
+    def total(quantity: Int): Int < Env[Pricing] =
+        subtotal(quantity).map { sub =>
+          if (quantity > 0)
+            Env.get[Pricing].map(pricing => sub + pricing.deliveryCents)
+          else
+            sub
+        }
 
-    // TODO: use a for-comprehension to combine subtotal and total.
-    def receipt(quantity: Int): String < Env[Pricing] = "TODO"
+    def receipt(quantity: Int): String < Env[Pricing] =
+        for {
+          sub <- subtotal(quantity)
+          tot <- total(quantity)
+        } yield {
+          "Items: %s cents; total: %s cents".format(sub, tot)
+        }
 end Checkout
