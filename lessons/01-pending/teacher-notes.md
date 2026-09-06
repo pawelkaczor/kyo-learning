@@ -15,7 +15,7 @@ Scope: Kyo 1.0.0-RC6, Scala 3.8.4, JVM. Verified on 2026-09-05 against release c
 
 ## Operational facts worth retaining
 
-Use `kyo-zio-test` at the course pin. Its published source provides `kyo.test.KyoSpecDefault`. The standalone build explicitly includes `zio-test-sbt:2.1.26` and registers `zio.test.sbt.ZTestFramework`. The adapter POM's test-scoped runner dependency does not supply a consumer runner. A fresh sbt global directory verified actual test discovery.
+Use native `kyo.test.Test[Any]` suite classes with `in` leaves and Kyo assertions. All three test projects enable `SbtKyoTestPlugin`, which supplies runner dependency and framework registration. The local snapshot API/runner request snapshot core libraries; explicit overrides retain RC6 for core, data, and scheduler. All existing suites pass with that configuration. The [migration record](verification.md#kyo-test-migration-2026-09-06) gives the exact version, commands, and classpath checks. Earlier ZIO adapter notes describe historical preparation and should not guide new tests.
 
 The verified console capture API is `Console.withOut`, returning an `Out` whose output fields are `stdOut` and `stdErr`. `Console.collect` was a rejected guess during preparation. Do not repeat it.
 

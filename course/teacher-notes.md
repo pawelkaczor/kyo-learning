@@ -1,5 +1,7 @@
 # Teacher preparation
 
+Current test tooling: suites now use native `kyo-test` via the locally published plugin. All 15 test executions across examples, exercises, and reference pass with non-test Kyo libraries kept at RC6. Read the [migration verification](../lessons/01-pending/verification.md#kyo-test-migration-2026-09-06); earlier ZIO adapter notes below are historical. Learner progress is unchanged by this build migration.
+
 ## Verified orientation
 
 On 2026-09-05, read the framework's top-level overview and contributor guidance, and the online overview. Indexed top-level module names without opening module READMEs or implementation files.

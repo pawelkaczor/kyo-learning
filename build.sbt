@@ -21,27 +21,28 @@ lazy val setup = project.in(file("setup")).settings(
   Compile / run / fork := true
 )
 
-val zioVersion = "2.1.26"
-
 lazy val lesson01Settings = Seq(
-  libraryDependencies ++= Seq(
-    "io.getkyo" %% "kyo-core" % kyoVersion,
-    "io.getkyo" %% "kyo-zio-test" % kyoVersion % Test,
-    "dev.zio" %% "zio-test-sbt" % zioVersion % Test
+  libraryDependencies += "io.getkyo" %% "kyo-core" % kyoVersion,
+  // The locally published test API/runner request snapshot core libraries.
+  // Keep lesson compilation and test execution on the course's RC6 baseline.
+  dependencyOverrides ++= Seq("kyo-core", "kyo-data", "kyo-scheduler").map(
+    module => "io.getkyo" %% module % kyoVersion
   ),
-  testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework"),
   Compile / run / fork := true
 )
 
 lazy val lesson01Examples = project.in(file("lessons/01-pending/examples"))
+  .enablePlugins(SbtKyoTestPlugin)
   .settings(lesson01Settings)
 
 lazy val lesson01Exercises = project.in(file("lessons/01-pending/exercises"))
+  .enablePlugins(SbtKyoTestPlugin)
   .settings(lesson01Settings)
   .settings(Test / unmanagedSourceDirectories +=
     baseDirectory.value.getParentFile / "acceptance" / "src" / "test" / "scala")
 
 lazy val lesson01Reference = project.in(file("lessons/01-pending/reference"))
+  .enablePlugins(SbtKyoTestPlugin)
   .settings(lesson01Settings)
   .settings(Test / unmanagedSourceDirectories +=
     baseDirectory.value.getParentFile / "acceptance" / "src" / "test" / "scala")

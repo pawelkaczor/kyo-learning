@@ -1,5 +1,7 @@
 # Lesson 1 verification
 
+Current build status: all migrated native kyo-test suites pass against RC6 core libraries. See [migration checks](#kyo-test-migration-2026-09-06). Earlier checks below retain their original date and framework provenance.
+
 Prepared and verified on 2026-09-05. Ready to teach; no learner implementation or mastery is implied.
 
 ## Baseline and provenance
@@ -39,3 +41,37 @@ Prepared and verified on 2026-09-05. Ready to teach; no learner implementation o
 - No unsafe bridge was added. Pure tests use `.eval` only after full environment handling; console tests use `KyoSpecDefault`; the runnable example uses `KyoApp`.
 
 The two forked application runs emitted the existing Scala `LazyVals` warning about deprecated `sun.misc.Unsafe::objectFieldOffset` on JDK 25. sbt labels forked stderr `[error]`; both applications exited successfully. The warning remains unsuppressed. There are no remaining preparation blocks. CI was not run or claimed.
+
+## kyo-test migration, 2026-09-06
+
+Enabled `SbtKyoTestPlugin` on the examples, exercises, and reference projects, following the [build-wiring instructions](https://getkyo.io/latest/kyo-test/#build-wiring) and local plugin source. The plugin, test API, and runner use `0.0.0+3296-404463ca+20260906-1812-SNAPSHOT`. Suite discovery expects classes. Converted all three suite source files to `Test[Any]` classes, retained each test name and value condition, and converted the three rejected-code checks to `typeCheckFailure` with the same strings.
+
+Removed explicit ZIO test dependencies and registration. Test-free setup/root projects need no runner plugin. Application and learner implementations, shared acceptance source placement, and root aggregation are unchanged. The native runner/API request snapshot core libraries; lesson settings override core, data, and scheduler to RC6. Compatibility is verified for these suites, not all test-framework features.
+
+Commands actually run:
+
+```sh
+sbt 'show lesson01Examples/libraryDependencies' 'show lesson01Exercises/libraryDependencies' 'show lesson01Reference/libraryDependencies' 'show lesson01Examples/testFrameworks' 'show lesson01Exercises/testFrameworks' 'show lesson01Reference/testFrameworks'
+```
+
+Exit 0. All three projects register `kyo.test.runner.SbtFramework` and declare the matching runner in Test scope. sbt's default candidate list also names other frameworks, including ZIO; candidates do not add dependencies.
+
+```sh
+sbt 'lesson01Examples/test' 'lesson01Exercises/test' 'lesson01Reference/test' 'show lesson01Exercises/Test/fullClasspath' 'show lesson01Reference/Test/fullClasspath'
+```
+
+Final run with RC6 overrides: exit 0. Examples: 4 passed; exercises: 5 passed; reference: 6 passed. Zero failures, cancellations, pending, ignored, timeouts, or skipped tests. All native assertions, including the compile-time rejection checks and console capture comparison, executed successfully.
+
+Before dependencies were available, resolution-only attempts failed successively on the runner, test API, then snapshot data artifact. No tests ran in those attempts. The user published runner/API; the RC6 overrides resolve the remaining core dependencies from the pinned release.
+
+Both printed implementation-project test classpaths contain the local snapshot API/runner and only RC6 non-test Kyo libraries. Neither contains ZIO artifacts or the other implementation's classes. Static comparison confirms all original test names and condition expressions are retained, with all lesson implementation files unchanged. `git diff --check` passed.
+
+The local snapshot plugin, base plugin, API, and runner remain prerequisites on a fresh machine or CI. No CI result is claimed.
+
+Final root check:
+
+```sh
+sbt -Dsbt.global.base="$(mktemp -d)" verify
+```
+
+Exit 0 with a fresh global sbt directory. Setup printed `Kyo JVM workspace is ready.`, the greeting app printed `Hello, Ada!`, and all 10 root example/reference tests passed. The existing Scala LazyVals deprecation warning on JDK 25 remains; application processes exited successfully. Exercise tests are still excluded from root verification and passed separately above.

@@ -4,7 +4,7 @@ An incremental, JVM-focused course for a Scala programmer who already knows func
 
 ## Start here
 
-This repository is independent of the Kyo framework build. It uses published Maven artifacts, not `publishLocal`, a source dependency, or a git submodule.
+This repository is independent of the Kyo framework build. Application code declares published Kyo RC6 artifacts. The test projects now use the locally published `sbt-kyo-test-publish` plugin and its matching `kyo-test-runner` snapshot; see [test dependency status](course/sources.md#kyo-test-migration-2026-09-06). A fresh machine or CI needs those artifacts before verification can run.
 
 Use JDK 25 and sbt. From this repository:
 

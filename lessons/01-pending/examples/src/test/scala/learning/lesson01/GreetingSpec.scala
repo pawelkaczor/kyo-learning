@@ -1,41 +1,34 @@
 package learning.lesson01
 
 import kyo.*
-import kyo.test.KyoSpecDefault
-import scala.compiletime.testing.typeChecks
-import zio.test.assertTrue
+import kyo.test.*
 
-object GreetingSpec extends KyoSpecDefault:
-    def spec = suite("Pending computations")(
-        test("plain values and fully handled Env can be evaluated") {
-            assertTrue(
-                Greeting.plain.eval == 42, 
-                Greeting.configured("Ada").eval == "Hello, Ada!"
-            )
-        },
-        test("the handler supplies the requested configuration") {
+class GreetingSpec extends Test[Any]:
+    "Pending computations" - {
+        "plain values and fully handled Env can be evaluated" in {
+            assert(Greeting.plain.eval == 42)
+            assert(Greeting.configured("Ada").eval == "Hello, Ada!")
+        }
+        "the handler supplies the requested configuration" in {
             val program = Greeting.message("Ada")
-            assertTrue(
-                Env.run(GreetingConfig("Hello"))(program).eval == "Hello, Ada!",
-                Env.run(GreetingConfig("Welcome"))(program).eval == "Welcome, Ada!",
-                Env.run(GreetingConfig("Hi"))(Greeting.message("")).eval == "Hi, !"
-            )
-        },
-        test("effectful map and for-comprehension produce the same output") {
+            assert(Env.run(GreetingConfig("Hello"))(program).eval == "Hello, Ada!")
+            assert(Env.run(GreetingConfig("Welcome"))(program).eval == "Welcome, Ada!")
+            assert(Env.run(GreetingConfig("Hi"))(Greeting.message("")).eval == "Hi, !")
+        }
+        "effectful map and for-comprehension produce the same output" in {
             Console.withOut(
                 Env.run(GreetingConfig("Hello"))(Greeting.announce("Ada"))
             ).map { case (mapped, _) =>
                 Console.withOut(Env.run(GreetingConfig("Hello"))(Greeting.announceFor("Ada"))).map { case (bound, _) =>
-                    assertTrue(mapped.stdOut == "Hello, Ada!\n", bound.stdOut == mapped.stdOut)
+                    assert(mapped.stdOut == "Hello, Ada!\n")
+                    assert(bound.stdOut == mapped.stdOut)
                 }
             }
-        },
-        test("Env cannot be dropped and eval requires no remaining effects") {
-            assertTrue(
-                !typeChecks("import kyo.*; val value: String < Any = Env.get[String]"),
-                !typeChecks("import kyo.*; Env.get[String].eval"),
-                !typeChecks("""import kyo.*; Console.printLine("hello").eval""")
-            )
         }
-    )
+        "Env cannot be dropped and eval requires no remaining effects" in {
+            typeCheckFailure("import kyo.*; val value: String < Any = Env.get[String]")
+            typeCheckFailure("import kyo.*; Env.get[String].eval")
+            typeCheckFailure("""import kyo.*; Console.printLine("hello").eval""")
+        }
+    }
 end GreetingSpec

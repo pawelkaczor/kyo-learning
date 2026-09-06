@@ -65,9 +65,9 @@ Release availability, JVM requirements, and whether an entry is a published libr
 | `kyo-stm` | Concurrency | indexed | None |
 | `kyo-system` | Core | indexed | None |
 | `kyo-tasty` | Specialized tools | indexed | None |
-| `kyo-test` | Testing | indexed | RC6 Maven artifact probe returned 404; use the verified `kyo-zio-test` adapter for Lesson 1. No module study. |
+| `kyo-test` | Testing | prepared (test infrastructure) | [Migration verification](../lessons/01-pending/verification.md#kyo-test-migration-2026-09-06). Local plugin/API/runner, suite classes, assertions, and typeCheckFailure verified against RC6 core libraries. Other test features unstudied. |
 | `kyo-ui` | Applications | indexed | None |
 | `kyo-website` | Not listed in overview | indexed | None |
 | `kyo-website-bundle` | Not listed in overview | indexed | None |
 | `kyo-zio` | Interop | indexed | None |
-| `kyo-zio-test` | Testing | prepared (test infrastructure) | [Lesson 1](../lessons/01-pending/lesson.md). RC6 standalone KyoSpecDefault and explicit ZIO sbt runner registration verified. |
+| `kyo-zio-test` | Testing | prepared (test infrastructure) | [Lesson 1](../lessons/01-pending/lesson.md). Historical RC6 adapter verification; removed from the build by the native kyo-test migration. |

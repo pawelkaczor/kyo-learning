@@ -54,7 +54,7 @@ Distinguish the API from the effect: `Console` is the API called here; `Sync` is
 sbt 'lesson01Examples/runMain learning.lesson01.GreetingApp'
 ```
 
-Output: `Hello, Ada!` followed by a newline. No custom unsafe runner is needed. In tests, `KyoSpecDefault` supplies the test runtime; `Console.withOut` captures output so assertions can check it. The adapter's internals are outside this lesson.
+Output: `Hello, Ada!` followed by a newline. No custom unsafe runner is needed. The migrated suites extend `kyo.test.Test[Any]`; the plugin supplies the runner, and `Console.withOut` captures output for assertions. The [migration verification record](verification.md#kyo-test-migration-2026-09-06) records passing checks with the native test framework and RC6 core libraries.
 
 Common mistake: treating `Env.run` as a universal executor, or reading `Any` as permission to ignore effects. A handler discharges its own requirement. Only a row with no requirements supports `.eval`. Compile-time checks reject attempts to drop `Env` or call `.eval` on unhandled `Env` or `Sync`.
 
