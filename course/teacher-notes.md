@@ -24,6 +24,20 @@ Keep this file a short index and preparation horizon. Maintain a concise `teache
 
 Learner materials also serve as teacher references. Their source files and tests supply executable examples; `verification.md` supplies dated outcomes; `reference/` holds solution-specific reasoning. The reusable skill holds the teaching process rather than a growing Kyo API manual. Store conclusions and evidence, not conversation transcripts or a detailed account of internal reasoning.
 
+## Optional API lookup tool: Cellar
+
+Available for teacher preparation as of 2026-09-07: Cellar `0.1.0-M13` (native executable). Use it for focused JVM dependency signature and source lookup before opening large source files. It is a lookup aid; semantic and runtime claims still need matching source or executable evidence. It does not change the pinned build or replace sbt verification.
+
+Verified command, exit 0:
+
+```sh
+cellar get-external io.getkyo:kyo-prelude_3:1.0.0-RC6 kyo.Env.get
+```
+
+The output identifies an inline method returning `R < Env[R]` and includes the contextual tag, non-intersection, and frame parameters, consistent with Lesson 1's release-source evidence. `cellar --version`, `get-external --help`, and `get-source --help` were also checked. The [upstream README](https://github.com/virtusLab/cellar#readme) documents project-classpath and source lookup modes; those modes have not yet been exercised in this course.
+
+Prefer explicit course-version coordinates for release API lookups. For native kyo-test, consult the migration record for the separate snapshot version and actual project classpath; do not assume the test framework ships at RC6. Use installed command help before an unfamiliar invocation, and retain only useful conclusions and evidence in the relevant lesson notes. No whole-module research is implied by tool availability.
+
 ## Preparation horizon
 
 - Current: Lesson 1 is prepared and verified; deliver one segment at a time.
