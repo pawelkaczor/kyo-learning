@@ -4,7 +4,7 @@ An incremental, JVM-focused course for a Scala programmer who already knows func
 
 ## Start here
 
-This repository is independent of the Kyo framework build. Application code declares published Kyo RC6 artifacts. The test projects now use the locally published `sbt-kyo-test-publish` plugin and its matching `kyo-test-runner` snapshot; see [test dependency status](course/sources.md#kyo-test-migration-2026-09-06). A fresh machine or CI needs those artifacts before verification can run.
+This repository is independent of the Kyo framework build. Application code and native test tooling use published Kyo `1.0.0-RC7` artifacts. The test projects enable `SbtKyoTestPlugin` through `sbt-kyo-test-publish` at the same release version; see [sources and versions](course/sources.md#executable-baseline).
 
 Use JDK 25 and sbt. From this repository:
 
@@ -12,7 +12,7 @@ Use JDK 25 and sbt. From this repository:
 sbt verify
 ```
 
-Root verification runs the setup check plus prepared lesson examples and reference tests. The setup check compiles and runs a small Kyo application. Success prints `Kyo JVM workspace is ready.` The pinned versions are Kyo `1.0.0-RC6`, Scala `3.8.4`, and sbt `1.12.13`. JDK 25 is the selected course runtime, not a claim about Kyo's minimum supported JDK.
+Root verification runs the setup check plus prepared lesson examples and reference tests. The setup check compiles and runs a small Kyo application. Success prints `Kyo JVM workspace is ready.` The pinned versions are Kyo `1.0.0-RC7`, Scala `3.9.0`, and sbt `1.12.13`. JDK 25 is the selected course runtime, not a claim about Kyo's minimum supported JDK.
 
 Open this directory as a separate Codex project. The teaching skill is versioned at [.agents/skills/kyo-teacher/SKILL.md](.agents/skills/kyo-teacher/SKILL.md). A local installation can point to this directory so skill improvements remain in git. The root [AGENTS.md](AGENTS.md) also routes teaching requests to it.
 
@@ -47,4 +47,4 @@ Each `lessons/NN-topic/` directory will contain `lesson.md`, `exercises.md`, `hi
 
 One root build shares dependency versions. Lessons add only their own dependencies. Root verification covers prepared examples and reference solutions. Exercise checks are run explicitly, so an unfinished exercise cannot break other lessons. The first exercise will introduce its exact commands.
 
-Start [Lesson 1: pending computations and composition](lessons/01-pending/lesson.md), then use its [exercise instructions](lessons/01-pending/exercises.md). The starter intentionally has failing behavior checks. Run them explicitly with `sbt 'lesson01Exercises/test'`; they are excluded from root verification.
+Start [Lesson 1: pending computations and composition](lessons/01-pending/lesson.md), then use its [exercise instructions](lessons/01-pending/exercises.md). Run exercise checks explicitly with `sbt 'lesson01Exercises/test'`; they are excluded from root verification.

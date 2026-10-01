@@ -54,7 +54,7 @@ Distinguish the API from the effect: `Console` is the API called here; `Sync` is
 sbt 'lesson01Examples/runMain learning.lesson01.GreetingApp'
 ```
 
-Output: `Hello, Ada!` followed by a newline. No custom unsafe runner is needed. The migrated suites extend `kyo.test.Test[Any]`; the plugin supplies the runner, and `Console.withOut` captures output for assertions. The [migration verification record](verification.md#kyo-test-migration-2026-09-06) records passing checks with the native test framework and RC6 core libraries.
+Output: `Hello, Ada!` followed by a newline. No custom unsafe runner is needed. The test suites extend `kyo.test.Test[Any]`; the plugin supplies the runner, and `Console.withOut` captures output for assertions. The [RC7 verification record](verification.md) records checks with the released native test plugin and RC7 libraries.
 
 Common mistake: treating `Env.run` as a universal executor, or reading `Any` as permission to ignore effects. A handler discharges its own requirement. Only a row with no requirements supports `.eval`. Compile-time checks reject attempts to drop `Env` or call `.eval` on unhandled `Env` or `Sync`.
 
@@ -64,4 +64,4 @@ Continue with [the exercise](exercises.md). [Hints](hints.md) are optional. Do n
 
 ## Release evidence
 
-The lesson uses Kyo RC6. Sources checked: [pending type and composition](https://github.com/getkyo/kyo/blob/2e58c0550b209317b85a30fc5787c24b7e4dd63c/kyo-kernel/shared/src/main/scala/kyo/kernel/Pending.scala), [Env.get and Env.run](https://github.com/getkyo/kyo/blob/2e58c0550b209317b85a30fc5787c24b7e4dd63c/kyo-prelude/shared/src/main/scala/kyo/Env.scala), [Console](https://github.com/getkyo/kyo/blob/2e58c0550b209317b85a30fc5787c24b7e4dd63c/kyo-core/shared/src/main/scala/kyo/Console.scala), and [KyoApp](https://github.com/getkyo/kyo/blob/2e58c0550b209317b85a30fc5787c24b7e4dd63c/kyo-core/shared/src/main/scala/kyo/KyoApp.scala). See [verification](verification.md) for executable evidence.
+The lesson uses Kyo 1.0.0-RC7 and Scala 3.9.0. The [verification record](verification.md) documents passing checks for the examples, native test framework, checkout acceptance suite, and separate reference implementation. The [course baseline](../../course/sources.md#executable-baseline) lists the pinned dependencies.

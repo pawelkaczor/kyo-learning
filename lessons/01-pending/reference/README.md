@@ -13,7 +13,3 @@ sbt 'lesson01Reference/test'
 ```
 
 This project compiles the same acceptance source as the exercises, but has its own implementation and classpath. Neither project depends on the other.
-
-## Acceptance mutation check
-
-Temporarily changed the empty-order branch from checking `quantity == 0` to checking `amount == 0`. This incorrectly makes a positive quantity of free items avoid delivery. The shared free-items test failed with actual 0 versus expected 100. The original implementation was restored before final verification, which passed all six reference tests.

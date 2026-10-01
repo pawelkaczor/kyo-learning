@@ -1,6 +1,6 @@
 # Teacher preparation
 
-Current test tooling: suites now use native `kyo-test` via the locally published plugin. All 15 test executions across examples, exercises, and reference pass with non-test Kyo libraries kept at RC6. Read the [migration verification](../lessons/01-pending/verification.md#kyo-test-migration-2026-09-06); earlier ZIO adapter notes below are historical. Learner progress is unchanged by this build migration.
+Current baseline: Kyo `1.0.0-RC7`, Scala `3.9.0`, and the released `sbt-kyo-test-publish:1.0.0-RC7` plugin. Read the [verification record](../lessons/01-pending/verification.md) for the passing examples, exercise tests, reference tests, and classpath checks.
 
 ## Verified orientation
 
@@ -28,15 +28,13 @@ Learner materials also serve as teacher references. Their source files and tests
 
 Available for teacher preparation as of 2026-09-07: Cellar `0.1.0-M13` (native executable). Use it for focused JVM dependency signature and source lookup before opening large source files. It is a lookup aid; semantic and runtime claims still need matching source or executable evidence. It does not change the pinned build or replace sbt verification.
 
-Verified command, exit 0:
+Use explicit course-version coordinates for API lookups, for example:
 
 ```sh
-cellar get-external io.getkyo:kyo-prelude_3:1.0.0-RC6 kyo.Env.get
+cellar get-external io.getkyo:kyo-prelude_3:1.0.0-RC7 kyo.Env.get
 ```
 
-The output identifies an inline method returning `R < Env[R]` and includes the contextual tag, non-intersection, and frame parameters, consistent with Lesson 1's release-source evidence. `cellar --version`, `get-external --help`, and `get-source --help` were also checked. The [upstream README](https://github.com/virtusLab/cellar#readme) documents project-classpath and source lookup modes; those modes have not yet been exercised in this course.
-
-Prefer explicit course-version coordinates for release API lookups. For native kyo-test, consult the migration record for the separate snapshot version and actual project classpath; do not assume the test framework ships at RC6. Use installed command help before an unfamiliar invocation, and retain only useful conclusions and evidence in the relevant lesson notes. No whole-module research is implied by tool availability.
+This RC7 lookup command is an example, not a recorded verification result. Native kyo-test shares the RC7 release baseline; consult the current build and resolved project classpath. Use installed command help before an unfamiliar invocation, and retain useful conclusions and evidence in the relevant lesson notes. No whole-module research is implied by tool availability.
 
 ## Preparation horizon
 
@@ -48,29 +46,13 @@ Prefer explicit course-version coordinates for release API lookups. For native k
 
 ## Lesson 1 preparation evidence
 
-On 2026-09-05, inspected only RC6 pending-type operations, `Env`, the relevant `Console` methods, `KyoApp`, and the test adapter. The four framework source files were compared with the immutable release commit and matched the published source jars byte for byte. No sibling checkout was modified.
+The RC7 example tests verify automatic lifting, pure and effectful `map`, equivalent for-comprehension output, configuration provision, remaining effect annotations, and rejection of `.eval` on unhandled effects. Do not imply every Scala expression becomes lazy simply because its expected type is pending.
 
-Verified automatic lifting, pure and effectful `map`, equivalent for-comprehension output, configuration provision, remaining effect annotations, and rejection of `.eval` on unhandled effects. Do not imply every Scala expression becomes lazy simply because its expected type is pending.
+The native test suites use `kyo.test.Test[Any]`. The released plugin supplies the test runner. Shared acceptance source is compiled independently by the exercises and reference, with no project dependency between them. All 15 example, exercise, and reference tests pass. See [Lesson 1 verification](../lessons/01-pending/verification.md) for commands and outcomes. Keep reference implementation details in its own directory.
 
-`kyo-test_3:1.0.0-RC6` returned HTTP 404. The published `kyo-zio-test` adapter provides `kyo.test.KyoSpecDefault`. Its POM puts `zio-test-sbt` in test scope, which is not inherited by consumers. Added explicit `zio-test-sbt:2.1.26` and `zio.test.sbt.ZTestFramework` registration. A fresh sbt global directory verifies that tests are discovered without global plugins.
+## Teaching handoff
 
-The exercise starter compiles and has targeted expected failures. The shared acceptance source is compiled independently by the exercises and reference, with no project dependency between them. The reference solves the main exercise and independent variation. A representative wrong answer was rejected, then restored. See [Lesson 1 verification](../lessons/01-pending/verification.md) for commands and outcomes. Keep reference implementation details in its own directory.
-
-## Teaching update, 2026-09-06
-
-Reviewed the opening prediction and continued with the already verified effectful `map` example. The post-handler type prediction was correct; exact string punctuation needed correction. Use the remaining-effect transfer question to check the explanation behind the type answer. See [progress](progress.md) for the pending prompt.
-
-Restored Lesson 1 knowledge from the teacher refresher and existing source. No API changes, new source investigation, or new test runs were needed. Verification remains the recorded 2026-09-05 result. The learner subsequently answered the remaining-effect transfer correctly, including why `.eval` is unavailable. Introduce the prepared for-comprehension and `KyoApp` boundary, then offer only `subtotal` as the first implementation step. The rest of the exercise remains available in the written instructions. No additional source investigation or execution was needed for this continuation.
-
-## Checkout review, 2026-09-06
-
-The learner moved ahead to all three functions; review them together and adapt the pace. Ran `sbt 'lesson01Exercises/test'` on the actual learner source: compilation succeeded, four acceptance tests passed, the receipt-format test failed, exit 1. The only observed acceptance mismatch is the requested exact output format. Effect composition and arithmetic, including the zero/free-item boundaries, are correct within the exercise domain. Preserve the learner's conditional implementation and formatting choice as their attempt; request the contract correction without rewriting it.
-
-Use the plain-value versus pending-computation branches in the learner's own `total` as the next short explanation question. No new framework investigation was needed. The earlier preparation verification remains dated separately; this run is learner-review evidence. The independent variation is still pending.
-
-## Checkout follow-up, 2026-09-06
-
-The learner corrected receipt formatting and identified automatic lifting in the conditional branches. Re-ran `sbt 'lesson01Exercises/test'`: compilation succeeded, all five acceptance tests passed, exit 0. The main implementation is complete; the independent test variation remains pending. Explain lifting as adapting the plain value to the expected pending type without introducing a new effect operation. The overall `total` still requires the environment, including through `subtotal` on the zero-quantity path. This uses already verified lesson semantics; no new framework investigation was needed.
+The learner has explained the remaining-effect distinction and automatic lifting, and completed the main checkout implementation. The independent configuration/test variation remains pending. Read [progress](progress.md) for the learning evidence and exact next prompt. Preserve the learner's implementation and review the variation before recording completion of the whole lesson.
 
 ## Source caution
 

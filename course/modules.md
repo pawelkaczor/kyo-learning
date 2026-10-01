@@ -4,7 +4,7 @@ Indexed on 2026-09-05 from the top-level README and directory names at orientati
 
 Every entry starts `indexed`, which means its name is known, not that it has been studied. Advance to `prepared`, `introduced`, `practised`, or `demonstrated` only with the corresponding teacher or learner evidence. Add lesson links and concrete topic coverage as work proceeds; one lesson rarely establishes mastery of an entire module.
 
-Release availability, JVM requirements, and whether an entry is a published library or supporting project remain unchecked until preparation. Entries absent from the overview need classification then. This inventory is not a promise that all entries ship in RC6. Reconcile published artifact variants at deliberate upgrades, without browsing all module internals.
+Release availability, JVM requirements, and whether an entry is a published library or supporting project remain unchecked until preparation. Entries absent from the overview need classification then. This inventory is not a promise that all entries ship in RC7. Reconcile published artifact variants at deliberate upgrades, without browsing all module internals.
 
 | Entry | Overview category | Coverage | Lesson/evidence |
 |---|---|---|---|
@@ -65,9 +65,9 @@ Release availability, JVM requirements, and whether an entry is a published libr
 | `kyo-stm` | Concurrency | indexed | None |
 | `kyo-system` | Core | indexed | None |
 | `kyo-tasty` | Specialized tools | indexed | None |
-| `kyo-test` | Testing | prepared (test infrastructure) | [Migration verification](../lessons/01-pending/verification.md#kyo-test-migration-2026-09-06). Local plugin/API/runner, suite classes, assertions, and typeCheckFailure verified against RC6 core libraries. Other test features unstudied. |
+| `kyo-test` | Testing | prepared (test infrastructure) | [RC7 verification](../lessons/01-pending/verification.md). Released plugin/API/runner; suite classes, assertions, and typeCheckFailure checked with the current lesson. Other test features unstudied. |
 | `kyo-ui` | Applications | indexed | None |
 | `kyo-website` | Not listed in overview | indexed | None |
 | `kyo-website-bundle` | Not listed in overview | indexed | None |
 | `kyo-zio` | Interop | indexed | None |
-| `kyo-zio-test` | Testing | prepared (test infrastructure) | [Lesson 1](../lessons/01-pending/lesson.md). Historical RC6 adapter verification; removed from the build by the native kyo-test migration. |
+| `kyo-zio-test` | Testing | indexed | Not used by the current build; lessons use native `kyo-test`. |
