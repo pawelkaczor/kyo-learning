@@ -1,4 +1,4 @@
-ThisBuild / scalaVersion := "3.8.4"
+ThisBuild / scalaVersion := "3.9.0"
 ThisBuild / organization := "learning.kyo"
 ThisBuild / version := "0.1.0-SNAPSHOT"
 ThisBuild / publish / skip := true
@@ -13,7 +13,7 @@ ThisBuild / scalacOptions ++= Seq(
   "-language:strictEquality"
 )
 
-val kyoVersion = "1.0.0-RC6"
+val kyoVersion = "1.0.0-RC7"
 
 lazy val setup = project.in(file("setup")).settings(
   name := "kyo-learning-setup",
@@ -23,11 +23,6 @@ lazy val setup = project.in(file("setup")).settings(
 
 lazy val lesson01Settings = Seq(
   libraryDependencies += "io.getkyo" %% "kyo-core" % kyoVersion,
-  // The locally published test API/runner request snapshot core libraries.
-  // Keep lesson compilation and test execution on the course's RC6 baseline.
-  dependencyOverrides ++= Seq("kyo-core", "kyo-data", "kyo-scheduler").map(
-    module => "io.getkyo" %% module % kyoVersion
-  ),
   Compile / run / fork := true
 )
 
